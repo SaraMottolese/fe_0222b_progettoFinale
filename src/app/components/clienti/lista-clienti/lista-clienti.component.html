@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <h1>LISTA CLIENTI</h1>
+        <button class="btn btn-success" (click)="creaNuovoCliente()">Aggiungi nuovo cliente</button>
+    </div>
+    <hr>
+    <div class="row justify-content-center ">
+        <div class="col-3" *ngFor="let cliente of clienti; let i=index">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h6 class="card-title">Cliente Numero: </h6>
+                    <h4><span style="font-weight:bold;">{{cliente.id}}</span></h4>
+                    <h5>Ragione sociale: </h5>
+                    <span style="font-weight:bold; font-size: 1.5rem;">{{cliente.ragioneSociale}}</span>
+                    <p class="card-text">email: {{cliente.email}}</p>
+                    <p>Partita Iva {{cliente.partitaIva}}</p>
+                    <a class="btn btn-primary">Dettagli cliente</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('-')" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">{{pagina +1}}</a></li>
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('+')" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  pathApi:'http://epicode.online/epicodebeservice_v2',
+  adminToken:'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY1MzYzNjk2NSwiZXhwIjoxNjUzNzIzMzY1fQ.lV3JlTmSGvBAd4TAMwGBxz3AmYvwqIoft8vrq3_QqjXP3f9iVpqqvAs5tpG_vF7_q0kV4wtVblzhUDTtSwDKtA',
+  adminTenant:'fe_0222b'
 };
 
 /*

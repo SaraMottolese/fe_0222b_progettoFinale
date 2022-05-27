@@ -1,0 +1,42 @@
+<!--*************************       CARD FATTURE      **************************-->
+
+
+<h2>FATTURE:</h2>
+<button class="btn btn-success" (click)="apriModale()">Aggiungi fattura</button>
+<div class="row justify-content-center" *ngIf="visualizzaFatture">
+    <div class="col-3" *ngFor="let fattura of fatture; let i=index">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body mb-4">
+                <h4 class="card-title"> Intestatario fattura:<span>{{fattura.cliente.ragioneSociale}}</span>
+                    <h5>- Id cliente: {{fattura.cliente.id}}</h5>
+                </h4>
+                <h4 class="card-subtitle mb-2 text-muted">Importo: <span>{{fattura.importo}} €</span></h4>
+                <p class="card-text">Data di fatturazione: {{fattura.data}}</p>
+                <p class="card-text">Anno di riferimento: {{fattura.anno}}</p>
+                <p class="card-text">Data di inserimento: {{fattura.dataInserimento}}</p>
+                <p class="card-text">Fatturato annuale: {{fattura.fatturatoAnnuale}}</p>
+                <h5 class="card-text">Stato del pagamento: <br>{{fattura.stato.nome}}</h5>
+                <button class="btn btn-info">Modifica</button>
+                <button class="btn btn-danger">Elimina</button>
+            </div>
+        </div>
+    </div>
+    <!--*************************       CAMBIO PAGINA      **************************-->
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('-')" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">{{pagina +1}}</a></li>
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('+')" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>

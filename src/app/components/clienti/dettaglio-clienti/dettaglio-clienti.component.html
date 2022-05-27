@@ -1,0 +1,91 @@
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="true" (click)="getInfo()">Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="getContatti()">Contatti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="getIndirizzi()">Indirizzi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " (click)="getFatture()">Fatture</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h1 class="card-title">{{cliente.ragioneSociale}}</h1>
+        <p class="card-text">Cliente numero: {{cliente.id}}</p>
+        <p class="card-text">Tipo cliente: {{cliente.tipoCliente}}</p>
+        <p class="card-text">Partita Iva: {{cliente.partitaIva}}</p>
+    </div>
+</div>
+<div *ngIf="contatti">
+    <h2>Contatti</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Pec: {{cliente.pec}}</li>
+        <li class="list-group-item">Email: {{cliente.email}}</li>
+        <li class="list-group-item">Nome contatto: {{cliente.nomeContatto}} {{cliente.cognomeContatto}}</li>
+        <li class="list-group-item">Email contatto: {{cliente.emailContatto}}</li>
+        <li class="list-group-item">Telefono contatto: {{cliente.telefonoContatto}}</li>
+
+    </ul>
+</div>
+<div *ngIf="indirizzi">
+    <ul class="list-group">
+        <h4>Indirizzo sede operativa:</h4>
+        <li class="list-group-item">Via: {{cliente.indirizzoSedeOperativa.via}}</li>
+        <li class="list-group-item">Civico: {{cliente.indirizzoSedeOperativa.civico}}</li>
+        <li class="list-group-item">Cap: {{cliente.indirizzoSedeOperativa.cap}}</li>
+        <li class="list-group-item">Località: {{cliente.indirizzoSedeOperativa.localita}}</li>
+        <li class="list-group-item">Comune: {{cliente.indirizzoSedeOperativa.comune.nome}}, {{cliente.indirizzoSedeOperativa.comune.provincia.nome}}, {{cliente.indirizzoSedeOperativa.comune.provincia.sigla}} </li>
+    </ul>
+    <ul class="list-group">
+        <h4>Indirizzo sede Legale:</h4>
+        <li class="list-group-item">Via: {{cliente.indirizzoSedeLegale.via}}</li>
+        <li class="list-group-item">Civico: {{cliente.indirizzoSedeLegale.civico}}</li>
+        <li class="list-group-item">Cap: {{cliente.indirizzoSedeLegale.cap}}</li>
+        <li class="list-group-item">Località: {{cliente.indirizzoSedeLegale.localita}}</li>
+        <li class="list-group-item">Comune: {{cliente.indirizzoSedeLegale.comune.nome}}, {{cliente.indirizzoSedeLegale.comune.provincia.nome}}, {{cliente.indirizzoSedeLegale.comune.provincia.sigla}} </li>
+    </ul>
+</div>
+
+<div *ngIf="vediFatture">
+    <h2>FATTURE:</h2>
+    <button class="btn btn-success">Aggiungi fattura</button>
+    <div class="row justify-content-center">
+        <div class="col-3" *ngFor="let fattura of fatture; let i=index">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body mb-4">
+                    <h2 class="card-title">Fattura numero: <span>{{fattura.numero}}</span></h2>
+                    <h4 class="card-subtitle mb-2 text-muted">Importo: <span>{{fattura.importo}} €</span></h4>
+                    <p class="card-text">Data di fatturazione: {{fattura.data}}</p>
+                    <p class="card-text">Anno di riferimento: {{fattura.anno}}</p>
+                    <p class="card-text">Data di inserimento: {{fattura.dataInserimento}}</p>
+                    <p class="card-text">Fatturato annuale: {{fattura.fatturatoAnnuale}}</p>
+                    <h5 class="card-text">Stato del pagamento: <br>{{fattura.stato.nome}}</h5>
+                    <button class="btn btn-info">Modifica</button>
+                    <button class="btn btn-danger">Elimina</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('-')" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">{{pagina +1}}</a></li>
+            <li class="page-item">
+                <a class="page-link" style="cursor: pointer;" (click)="cambiaPagina('+')" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
