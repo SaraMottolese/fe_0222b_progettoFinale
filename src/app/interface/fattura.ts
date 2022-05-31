@@ -10,7 +10,7 @@ export interface Fattura {
         id: number;
         nome: string;
     };
-    cliente: Cliente;
+    cliente: any;
     dataInserimento:Date;
     dataUltimoContatto: Date;
     fatturatoAnnuale:number

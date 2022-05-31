@@ -22,4 +22,9 @@ export class ComuniService {
   getComuni(pagina: number) {
       return this.http.get<any>(`${environment.pathApi}/api/comuni?page=${pagina}`);
   }
+
+  getComuniById(id:number){
+
+    return this.http.get<any>(`${this.pathApi}/api/comuni/${id}`)
+  }
 }

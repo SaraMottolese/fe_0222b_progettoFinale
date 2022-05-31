@@ -17,6 +17,10 @@ import { DettaglioClientiComponent } from './components/clienti/dettaglio-client
 import { RoutingModule } from './routing/routing.module';
 import { InterceptorChiamateInterceptor } from './interceptor/interceptor-chiamate.interceptor';
 import { NewClienteComponent } from './components/clienti/new-cliente/new-cliente.component';
+import { ModificaClienteComponent } from './components/clienti/modifica-cliente/modifica-cliente.component';
+import { ModificaFatturaComponent } from './components/fatture/modifica-fattura/modifica-fattura.component';
+import { NuovaFatturaComponent } from './components/fatture/nuova-fattura/nuova-fattura.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { NewClienteComponent } from './components/clienti/new-cliente/new-client
     UserComponent,
     HomeComponent,
     DettaglioClientiComponent,
-    NewClienteComponent
+    NewClienteComponent,
+    ModificaClienteComponent,
+    ModificaFatturaComponent,
+    NuovaFatturaComponent
 
     ],
   imports: [
@@ -39,7 +46,8 @@ import { NewClienteComponent } from './components/clienti/new-cliente/new-client
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RoutingModule
+    RoutingModule,
+    ReactiveFormsModule
 
   ],
   providers: [{

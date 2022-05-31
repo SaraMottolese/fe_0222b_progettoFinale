@@ -1,1 +1,18 @@
-<p>dettaglio-fatture works!</p>
+<div class="row justify-content-center">
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body mb-4">
+                <h4 class="card-title"> Intestatario fattura:<span>{{fattura.cliente.ragioneSociale}}</span>
+                    <h5>- Id cliente: {{fattura.cliente.id}}</h5>
+                </h4>
+                <h4 class="card-subtitle mb-2 text-muted">Importo: <span>{{fattura.importo}} €</span></h4>
+                <p class="card-text">Data di fatturazione: {{fattura.data}}</p>
+                <p class="card-text">Anno di riferimento: {{fattura.anno}}</p>
+                <p class="card-text">Data di inserimento: {{fattura.dataInserimento}}</p>
+                <p class="card-text">Fatturato annuale: {{fattura.fatturatoAnnuale}}</p>
+                <h5 class="card-text">Stato del pagamento: <br>{{fattura.stato.nome}}</h5>
+                <button class="btn btn-info" [routerLink]="['/modica-fattura']">Modifica</button>
+                <button class="btn btn-danger" (click)="eliminaFattura()">Elimina</button>
+            </div>
+        </div>
+    </div>

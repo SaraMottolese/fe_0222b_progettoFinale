@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Cliente } from 'src/app/interface/cliente';
 import { Fattura } from 'src/app/interface/fattura';
@@ -25,7 +25,7 @@ export class DettaglioClientiComponent implements OnInit {
 
 
 
-constructor(private clienteSrv:ClientiService, private route:ActivatedRoute, private fatturaSrv:FattureService) { }
+constructor(private clienteSrv:ClientiService, private route:ActivatedRoute, private fatturaSrv:FattureService, private routers:Router) { }
 
 ngOnInit(): void {
     this.getClienteById()
@@ -74,6 +74,13 @@ getClienteById(){
   }
   this.getFatture();
 }
-
-
+eliminaCliente(id:number){
+  this.clienteSrv.eliminaCliente(this.cliente.id).subscribe()
+  this.fatturaSrv.eliminaFatturaByCliente(this.cliente.id).subscribe();
+  this.getClienteById()
+  this.routers.navigate(['clienti'])
+  }
 }
+
+
+

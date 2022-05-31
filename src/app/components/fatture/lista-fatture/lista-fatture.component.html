@@ -2,25 +2,30 @@
 
 
 <h2>FATTURE:</h2>
-<button class="btn btn-success" (click)="apriModale()">Aggiungi fattura</button>
-<div class="row justify-content-center" *ngIf="visualizzaFatture">
-    <div class="col-3" *ngFor="let fattura of fatture; let i=index">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body mb-4">
-                <h4 class="card-title"> Intestatario fattura:<span>{{fattura.cliente.ragioneSociale}}</span>
-                    <h5>- Id cliente: {{fattura.cliente.id}}</h5>
-                </h4>
-                <h4 class="card-subtitle mb-2 text-muted">Importo: <span>{{fattura.importo}} €</span></h4>
-                <p class="card-text">Data di fatturazione: {{fattura.data}}</p>
-                <p class="card-text">Anno di riferimento: {{fattura.anno}}</p>
-                <p class="card-text">Data di inserimento: {{fattura.dataInserimento}}</p>
-                <p class="card-text">Fatturato annuale: {{fattura.fatturatoAnnuale}}</p>
-                <h5 class="card-text">Stato del pagamento: <br>{{fattura.stato.nome}}</h5>
-                <button class="btn btn-info">Modifica</button>
-                <button class="btn btn-danger">Elimina</button>
-            </div>
-        </div>
-    </div>
+<button class="btn btn-success" [routerLink]="['/nuova-fattura']">Aggiungi fattura</button>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id fattura</th>
+                <th scope="col">Intestatario fattura</th>
+                <th scope="col">Importo</th>
+                <th scope="col">Data fatturazione</th>
+                <th scope="col">Dettagli Fattura</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fattura of fatture;">
+                <td>{{fattura.id}}</td>
+                <td>{{fattura.cliente.ragioneSociale}}</td>
+                <td>{{fattura.importo}}</td>
+                <td>{{fattura.data}}</td>
+                <td><button class="btn btn-primary" [routerLink]="['/fatture/', fattura.id]">Vedi dettaglio</button></td>
+            </tr>
+        </tbody>
+    </table>
+
     <!--*************************       CAMBIO PAGINA      **************************-->
 
     <nav aria-label="Page navigation example">

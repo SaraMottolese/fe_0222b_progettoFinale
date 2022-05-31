@@ -10,15 +10,12 @@ import { FattureService } from 'src/app/service/fatture.service';
 export class ListaFattureComponent implements OnInit {
     pagina = 0;
     fatture!: Fattura[]
-    modal=false;
-    visualizzaFatture=true;
     fattura!:Fattura
 
     constructor(private fatturaSrv: FattureService) {}
 
     ngOnInit(): void {
         this.getFatture();
-        console.log(this.modal)
     }
 
     cambiaPagina(param: string) {
@@ -34,14 +31,6 @@ export class ListaFattureComponent implements OnInit {
         this.fatturaSrv.getFatture(this.pagina).subscribe((response)=> (this.fatture=response.content))
     }
 
-    apriModale(){
-        this.modal=true
-        this.visualizzaFatture=false
-    }
-    chiudiModale(){
-        this.modal=false
-        this.visualizzaFatture=true
-    }
 
 
 

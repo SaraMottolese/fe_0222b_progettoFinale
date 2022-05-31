@@ -25,6 +25,11 @@ export class ClientiService {
        return this.http.get<any>(`${this.pathApi}/api/clienti?page=${pagina}`)
    }
 
+   getClientiFattura(){
+    return this.http.get<any>(`${this.pathApi}/api/clienti`)
+}
+
+/****************************************   GET    ************************************************/
    getClienteById(id:number){
        return this.http.get<any>(`${this.pathApi}/api/clienti/${id}`)
    }
@@ -36,5 +41,35 @@ export class ClientiService {
   getTipi(){
     return this.http.get<any>(`${this.pathApi}/api/clienti/tipicliente`)
   }
+
+  getByRagioneSociale(data:any){
+    return this.http.get<any>(`${this.pathApi}/api/clienti/ragionesociale?nome=${data}` )
+  }
+
+
+/****************************************   NUOVO    ************************************************/
+
+  nuovoCliente(id:number, data:any){
+    if(id=== 0){
+      return this.http.post<any>(`${this.pathApi}/api/clienti`, data)
+    }else{
+        return this.http.put<any>(`${this.pathApi}/api/clienti/${id}`, data)
+      }
+  }
+
+  /****************************************   MODIFICA    ************************************************/
+
+  modificaCliente(data: any, id: number){
+    return this.http.put<any>(`${this.pathApi}/api/clienti/${id}`, data)
+  }
+
+  /****************************************   ELIMINA    ************************************************/
+
+  eliminaCliente(id:number){
+    return this.http.delete<any>(`${this.pathApi}/api/clienti/${id}`)
+  }
+
+
+
 
 }

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  pathApi:'http://epicode.online/epicodebeservice_v2',
-  adminToken:'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY1MzYzNjk2NSwiZXhwIjoxNjUzNzIzMzY1fQ.lV3JlTmSGvBAd4TAMwGBxz3AmYvwqIoft8vrq3_QqjXP3f9iVpqqvAs5tpG_vF7_q0kV4wtVblzhUDTtSwDKtA',
+  pathApi:'https://epicode.online/epicodebeservice_v2',
+  adminToken:'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY1MzYzNTE1MSwiZXhwIjoxOTY4OTk1MTUxfQ.TbqmVvOUiGSeqtvLAfKz82S3dNfVALe9VhoUZkH4QA6aDfdUGKOd0xN-JSnLxWbNpjFX5zMAxr4Rdz8inxS8qg',
   adminTenant:'fe_0222b'
 };
 

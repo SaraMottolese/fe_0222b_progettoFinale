@@ -20,6 +20,9 @@
         <p class="card-text">Cliente numero: {{cliente.id}}</p>
         <p class="card-text">Tipo cliente: {{cliente.tipoCliente}}</p>
         <p class="card-text">Partita Iva: {{cliente.partitaIva}}</p>
+        <button class="btn btn-warning" [routerLink]="['/modifica-cliente/',cliente.id]">Modifica cliente</button>
+        <button class="btn btn-warning" (click)="eliminaCliente(cliente.id)">Elimina cliente</button>
+
     </div>
 </div>
 <div *ngIf="contatti">

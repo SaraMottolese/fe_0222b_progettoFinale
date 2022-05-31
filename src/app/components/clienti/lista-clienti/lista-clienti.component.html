@@ -14,12 +14,14 @@
                     <span style="font-weight:bold; font-size: 1.5rem;">{{cliente.ragioneSociale}}</span>
                     <p class="card-text">email: {{cliente.email}}</p>
                     <p>Partita Iva {{cliente.partitaIva}}</p>
-                    <a class="btn btn-primary">Dettagli cliente</a>
+                    <a class="btn btn-primary" [routerLink]="['/clienti/', cliente.id]">Dettagli cliente</a>
                 </div>
             </div>
 
         </div>
     </div>
+    <!--*************************       CAMBIO PAGINA      **************************-->
+
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">

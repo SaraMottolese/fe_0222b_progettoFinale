@@ -1,0 +1,39 @@
+<div class="container text-center p-5 mt-5 mb-5 rounded">
+    <h1>Nuova Fattura</h1>
+    <div class="row justify-content-center">
+        <form [formGroup]="form" (submit)="creaFattura(form)">
+            <div class="form-group mb-2">
+                <label for="data">Data *</label>
+                <input formControlName="data" name="data" class="form-control" type="date" id="data" required/>
+            </div>
+            <div class="form-group mb-2">
+                <label for="numero">Numero *</label>
+                <input formControlName="numero" name="numero" class="form-control" type="text" id="numero" required />
+            </div>
+            <div class="form-group mb-2">
+                <label for="anno">Anno *</label>
+                <input formControlName="anno" name="anno" class="form-control" type="text" id="anno" required/>
+            </div>
+            <div class="form-group mb-2">
+                <label for="importo">Importo *</label>
+                <input formControlName="importo" name="importo" class="form-control" type="number" id="importo" required />
+            </div>
+            <div class="form-group mb-2">
+                <label for="ragioneSociale">Cliente *</label>
+                <select formControlName="ragioneSociale" name="ragioneSociale" id="ragioneSociale">
+                <option [value]="cliente.id" *ngFor="let cliente of clienti">{{cliente.ragioneSociale}}</option>
+              </select>
+            </div>
+            <div class="form-group mb-2">
+                <label for="stato">Stato *</label>
+                <select name="stato" id="stato" formControlName="stato" required class="form-select form-select-sm">
+            <option [value]="tipo.id" *ngFor="let tipo of tipi;">{{tipo.nome}}</option>
+          </select>
+            </div>
+
+            <button class="btn btn-primary mt-3 mb-3" type="submit">
+          Crea
+        </button>
+        </form>
+    </div>
+</div>

@@ -1,18 +1,18 @@
 import { Comune } from "./comune";
 
-export interface Cliente {
-  email:string;
-  id: number;
-  partitaIva: string;
-  ragioneSociale:string;
-  tipoCliente: string;
-  pec: string;
-  telefono: string;
-  nomeContatto: string;
-  cognomeContatto: string;
-  emailContatto: string;
-  telefonoContatto:number;
-  indirizzoSedeOperativa:{
+export class Cliente {
+  email!:string;
+  id!: number;
+  partitaIva!: string;
+  ragioneSociale!:string;
+  tipoCliente!: string;
+  pec!: string;
+  telefono!: string;
+  nomeContatto!: string;
+  cognomeContatto!: string;
+  emailContatto!: string;
+  telefonoContatto!:number;
+  indirizzoSedeOperativa!:{
     id:number;
     via:string;
     civico: string;
@@ -20,7 +20,7 @@ export interface Cliente {
     localita:string;
     comune: Comune;
   };
-  indirizzoSedeLegale:{
+  indirizzoSedeLegale!:{
     id:number;
     via: string;
     civico:string;
