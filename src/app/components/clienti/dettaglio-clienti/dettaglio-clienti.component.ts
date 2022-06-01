@@ -21,6 +21,7 @@ export class DettaglioClientiComponent implements OnInit {
   indirizzi=false
   fatture!:Fattura[]
   pagina=0
+  cardBody=true
 
 
 
@@ -48,6 +49,7 @@ getClienteById(){
   this.contatti=false;
   this.vediFatture=true;
   this.indirizzi=false;
+  this.cardBody=false
   this.sub= this.route.params.subscribe((params:Params)=>{
       this.id=+params['id'];
       console.log(this.id);
@@ -60,11 +62,15 @@ getClienteById(){
   this.contatti=true;
   this.vediFatture=false;
   this.indirizzi=false;
+  this.cardBody=true
+
  }
  getIndirizzi(){
   this.contatti=false;
   this.vediFatture=false;
   this.indirizzi=true;
+  this.cardBody=true
+
  }
  cambiaPagina(param: string) {
   if (param == '+') {

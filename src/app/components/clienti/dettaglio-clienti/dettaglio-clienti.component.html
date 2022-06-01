@@ -15,13 +15,13 @@
             </li>
         </ul>
     </div>
-    <div class="card-body">
+    <div class="card-body " *ngIf="cardBody" id="cardCliente">
         <h1 class="card-title">{{cliente.ragioneSociale}}</h1>
         <p class="card-text">Cliente numero: {{cliente.id}}</p>
         <p class="card-text">Tipo cliente: {{cliente.tipoCliente}}</p>
         <p class="card-text">Partita Iva: {{cliente.partitaIva}}</p>
         <button class="btn btn-warning" [routerLink]="['/modifica-cliente/',cliente.id]">Modifica cliente</button>
-        <button class="btn btn-warning" (click)="eliminaCliente(cliente.id)">Elimina cliente</button>
+        <button class="btn btn-danger" (click)="eliminaCliente(cliente.id)">Elimina cliente</button>
 
     </div>
 </div>
@@ -57,11 +57,10 @@
 
 <div *ngIf="vediFatture">
     <h2>FATTURE:</h2>
-    <button class="btn btn-success">Aggiungi fattura</button>
-    <div class="row justify-content-center">
+    <div class="row " id="fattura">
         <div class="col-3" *ngFor="let fattura of fatture; let i=index">
             <div class="card" style="width: 18rem;">
-                <div class="card-body mb-4">
+                <div class="card-body mb-4" id="cardFatt">
                     <h2 class="card-title">Fattura numero: <span>{{fattura.numero}}</span></h2>
                     <h4 class="card-subtitle mb-2 text-muted">Importo: <span>{{fattura.importo}} €</span></h4>
                     <p class="card-text">Data di fatturazione: {{fattura.data}}</p>

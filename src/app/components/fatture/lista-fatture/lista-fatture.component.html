@@ -1,8 +1,31 @@
 <!--*************************       CARD FATTURE      **************************-->
 
-
 <h2>FATTURE:</h2>
-<button class="btn btn-success" [routerLink]="['/nuova-fattura']">Aggiungi fattura</button>
+<div class="container d-flex" id="testa">
+    <div class="col-10" id="ricerca">
+
+        <h4>Ricerca fatture</h4>
+        <form [formGroup]="form">
+            <div>
+                <label for="bycliente" class="m-3">Cliente</label>
+                <select class="m-3" formControlName="cliente" name="bycliente" id="bycliente" (ngModelChange)="getFatturaByCliente()">
+                    <option value="{{cliente.id}}" *ngFor="let cliente of clienti">{{cliente.ragioneSociale}}</option>
+                </select>
+                <label class="m-3" for="byStato">Stato fattura</label>
+                <select class="m-3" formControlName="statoPagamento" name="byStato" id="byStato" (ngModelChange)="getFatturaByStato()">
+                    <option value="1">Pagata</option>
+                    <option value="2">Non pagata</option>
+
+                </select>
+
+            </div>
+        </form>
+    </div>
+    <div class="col-2" id="bottone">
+
+        <button class="btn btn-success" [routerLink]="['/nuova-fattura']">Aggiungi fattura</button>
+    </div>
+</div>
 <div>
     <table class="table">
         <thead>
@@ -10,7 +33,6 @@
                 <th scope="col">Id fattura</th>
                 <th scope="col">Intestatario fattura</th>
                 <th scope="col">Importo</th>
-                <th scope="col">Data fatturazione</th>
                 <th scope="col">Dettagli Fattura</th>
 
             </tr>
@@ -20,8 +42,8 @@
                 <td>{{fattura.id}}</td>
                 <td>{{fattura.cliente.ragioneSociale}}</td>
                 <td>{{fattura.importo}}</td>
-                <td>{{fattura.data}}</td>
-                <td><button class="btn btn-primary" [routerLink]="['/fatture/', fattura.id]">Vedi dettaglio</button></td>
+                <td><button class="btn btn-primary" [routerLink]="['/fatture/', fattura.id]">Vedi dettaglio</button>
+                </td>
             </tr>
         </tbody>
     </table>

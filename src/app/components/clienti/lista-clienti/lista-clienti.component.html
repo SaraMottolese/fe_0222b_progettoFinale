@@ -1,7 +1,20 @@
 <div>
-    <div>
-        <h1>LISTA CLIENTI</h1>
+    <h1>LISTA CLIENTI</h1>
+    <div id="testa">
+
+        <div id="ricerca">
+            <h4>Ricerca clienti</h4>
+            <form [formGroup]="form">
+                <div>
+                    <label for="byRagioneSociale">Ragione sociale</label>
+                    <select formControlName="ragioneSociale" name="byRagioneSociale" id="byRagioneSociale" (ngModelChange)="getClientiByRagioneSociale()">
+            <option value="{{cliente.ragioneSociale}}" *ngFor="let cliente of clienti">{{cliente.ragioneSociale}}</option>
+        </select>
+                </div>
+            </form>
+        </div>
         <button class="btn btn-success" (click)="creaNuovoCliente()">Aggiungi nuovo cliente</button>
+
     </div>
     <hr>
     <div class="row justify-content-center ">
